@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    ius_repository_ius: true
+  roles:
+    # - role: geerlingguy.repo-epel
+    #   when: ansible_os_family  == "RedHat"
+    # - role: linuxhq.ius
+    #   when: ansible_os_family  == "RedHat"
+    - role: ansible-role-hass

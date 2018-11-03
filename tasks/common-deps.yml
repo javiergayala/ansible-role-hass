@@ -1,0 +1,31 @@
+---
+- name: Install Python virtualenv package
+  pip:
+    name: virtualenv
+    executable: "{{ hass_pip3 | basename }}"
+
+- name: Create Home-Assistant group
+  group:
+    name: "{{ hass_user }}"
+    state: present
+
+- name: Create Home-Assistant user
+  user:
+    name: "{{ hass_user }}"
+    group: "{{ hass_user }}"
+    create_home: true
+
+- name: Create Home-Assistant venv directory
+  file:
+    path: "{{ hass_virtualenv_path }}"
+    state: directory
+    owner: "{{ hass_user }}"
+    group: "{{ hass_user }}"
+
+- name: Install Home-Assistant and dependencies
+  pip:
+    name: "{{ hass_pip_pkgs }}"
+    virtualenv: "{{ hass_virtualenv_path }}"
+    virtualenv_python: "{{ hass_python_path }}"
+  become: true
+  become_user: "{{ hass_user }}"

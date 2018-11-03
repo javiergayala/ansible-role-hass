@@ -1,0 +1,9 @@
+---
+# defaults file for ansible-role-hass
+hass_virtualenv_path: /srv/home-assistant
+hass_user: homeassistant
+hass_config_path: /home/homeassistant/.homeassistant
+hass_python_path: /usr/bin/python3
+hass_pip_pkgs:
+  - homeassistant
+  - wheel

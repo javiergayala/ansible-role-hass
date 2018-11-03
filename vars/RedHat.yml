@@ -1,0 +1,8 @@
+---
+hass_pip3: /usr/bin/pip3.6
+hass_os_pkgs:
+  - python36u
+  - python36u-pip
+  - python36u-devel
+  - python36u-setuptools
+  - python-setuptools
