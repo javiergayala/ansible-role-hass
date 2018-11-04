@@ -5,7 +5,7 @@ import testinfra.utils.ansible_runner
 import pytest
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts(all)
+    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
 @pytest.mark.parametrize("name,version", [
@@ -15,7 +15,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     ("python3-setuptools", "3"),
     ("python-setuptools", "3"),
 ])
-def test_rpm_packages(host, name, version):
+def test_os_packages(host, name, version):
     """Test that rpm based packages are present.
 
     Arguments:

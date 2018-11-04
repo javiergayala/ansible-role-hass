@@ -1,2 +1,25 @@
 ---
 # handlers file for ansible-role-hass
+- name: home-assistant enable
+  systemd:
+    name: "home-assistant@{{ hass_user }}.service"
+    enabled: "yes"
+    state: started
+    daemon_reload: "yes"
+
+- name: home-assistant restart
+  systemd:
+    name: "home-assistant@{{ hass_user }}.service"
+    state: restarted
+
+- name: appdaemon enable
+  systemd:
+    name: "appdaemon@{{ hass_user }}.service"
+    enabled: "yes"
+    state: started
+    daemon_reload: "yes"
+
+- name: appdaemon restart
+  systemd:
+    name: "appdaemon@{{ hass_user }}.service"
+    state: restarted

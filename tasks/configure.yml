@@ -1,0 +1,13 @@
+---
+- name: Install Home-Assistant systemd service
+  template:
+    src: templates/home-assistant.service
+    dest: "/etc/systemd/system/home-assistant@{{ hass_user }}.service"
+  notify: home-assistant enable
+
+- name: Install AppDaemon systemd service
+  template:
+    src: templates/appdaemon.service
+    dest: "/etc/systemd/system/appdaemon@{{ hass_user }}.service"
+  notify: appdaemon enable
+  when: hass_install_appdaemon is defined and hass_install_appdaemon

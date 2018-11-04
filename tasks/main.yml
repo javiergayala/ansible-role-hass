@@ -12,3 +12,10 @@
 
 - name: Include Common dependencies
   include_tasks: tasks/common-deps.yml
+
+- name: Include Configuration tasks
+  include_tasks: tasks/configure.yml
+
+- name: Include Update tasks
+  include_tasks: tasks/update.yml
+  when: hass_update_pkgs is defined and hass_update_pkgs

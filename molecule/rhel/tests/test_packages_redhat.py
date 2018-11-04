@@ -1,19 +1,19 @@
-"""Package related tests for Debian."""
+"""Package related tests for RedHat."""
 import os
 
 import testinfra.utils.ansible_runner
 import pytest
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts(all)
+    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
 @pytest.mark.parametrize("name,version", [
-    ("python3", "3"),
-    ("python3-pip", "9"),
-    ("python3-dev", "3"),
-    ("python3-setuptools", "3"),
-    ("python-setuptools", "3"),
+    ("python36u", "3.6"),
+    ("python36u-pip", "9"),
+    ("python36u-devel", "3.6"),
+    ("python36u-setuptools", "39"),
+    ("python-setuptools", "0.9"),
 ])
 def test_rpm_packages(host, name, version):
     """Test that rpm based packages are present.

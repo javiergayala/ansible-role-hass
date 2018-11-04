@@ -1,0 +1,26 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: centos7-$ENVNAME
+    image: centos:7
+    command: "/lib/systemd/systemd"
+    privileged: true
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      all:
+        hass_install_appdaemon: true
+  lint:
+    name: ansible-lint
+scenario:
+  name: rhel
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

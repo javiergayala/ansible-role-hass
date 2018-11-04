@@ -1,0 +1,16 @@
+---
+sudo: required
+language: python
+python:
+  - "2.7"
+services:
+  - docker
+before_install:
+  - sudo apt-get -qq update
+install:
+  - pip install -r requirements.txt
+  - pip install tox-travis
+script:
+  - detox
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

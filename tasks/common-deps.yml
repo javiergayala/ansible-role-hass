@@ -29,3 +29,20 @@
     virtualenv_python: "{{ hass_python_path }}"
   become: true
   become_user: "{{ hass_user }}"
+
+- name: Create AppDaemon venv directory
+  file:
+    path: "{{ hass_appdaemon_virtualenv_path }}"
+    state: directory
+    owner: "{{ hass_user }}"
+    group: "{{ hass_user }}"
+  when: hass_install_appdaemon is defined and hass_install_appdaemon
+
+- name: Install AppDaemon and dependencies
+  pip:
+    name: "{{ hass_pip_pkgs_appdaemon }}"
+    virtualenv: "{{ hass_appdaemon_virtualenv_path }}"
+    virtualenv_python: "{{ hass_python_path }}"
+  become: true
+  become_user: "{{ hass_user }}"
+  when: hass_install_appdaemon is defined and hass_install_appdaemon

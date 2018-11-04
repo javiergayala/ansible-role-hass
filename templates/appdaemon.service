@@ -1,0 +1,11 @@
+[Unit]
+Description=AppDaemon
+After=network-online.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart={{ hass_appdaemon_virtualenv_path }}/bin/appdaemon -c "{{ hass_config_path }}"
+
+[Install]
+WantedBy=multi-user.target
