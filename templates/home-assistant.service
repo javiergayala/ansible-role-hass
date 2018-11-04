@@ -1,0 +1,11 @@
+[Unit]
+Description=Home Assistant
+After=network-online.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart={{ hass_virtualenv_path }}/bin/hass -c "{{ hass_config_path }}"
+
+[Install]
+WantedBy=multi-user.target

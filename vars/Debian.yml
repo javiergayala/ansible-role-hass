@@ -1,5 +1,6 @@
 ---
 hass_pip3: /usr/bin/pip3
+hass_python_path: /usr/bin/python3
 hass_os_pkgs:
   - python3
   - python3-pip

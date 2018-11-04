@@ -1,4 +1,4 @@
-"""Package related tests for RedHat."""
+"""Package related tests."""
 import os
 
 import testinfra.utils.ansible_runner
@@ -21,5 +21,21 @@ def test_pip_packages(host, name):
     """
     pkgs = host.pip_package.get_packages(
         pip_path='/srv/home-assistant/bin/pip3')
+
+    assert name in pkgs
+
+
+@pytest.mark.parametrize("name", [
+    "appdaemon"
+])
+def test_appdaemon_pip_packages(host, name):
+    """Test that PIP based packages are present for appdaemon.
+
+    Arguments:
+        host {fixture} -- Pytest fixture that provides access to modules.
+        name {str} -- Name of package.
+    """
+    pkgs = host.pip_package.get_packages(
+        pip_path='/srv/appdaemon/bin/pip3')
 
     assert name in pkgs

@@ -10,12 +10,26 @@ lint:
 platforms:
   - name: centos7
     image: centos:7
+    command: "/lib/systemd/systemd"
+    privileged: true
   - name: stretch
-    image: debian:stretch
+    image: geerlingguy/docker-debian9-ansible:latest
+    command: "/lib/systemd/systemd"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
   - name: ubuntu18
-    image: ubuntu:18.04
+    image: geerlingguy/docker-ubuntu1804-ansible:latest
+    command: "/lib/systemd/systemd"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      all:
+        hass_install_appdaemon: true
   lint:
     name: ansible-lint
 scenario:

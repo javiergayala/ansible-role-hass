@@ -1,5 +1,6 @@
 ---
 hass_pip3: /usr/bin/pip3.6
+hass_python_path: /usr/bin/python3.6
 hass_os_pkgs:
   - python36u
   - python36u-pip

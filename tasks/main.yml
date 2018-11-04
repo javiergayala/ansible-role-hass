@@ -12,3 +12,6 @@
 
 - name: Include Common dependencies
   include_tasks: tasks/common-deps.yml
+
+- name: Include Configuration tasks
+  include_tasks: tasks/configure.yml
