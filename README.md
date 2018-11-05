@@ -1,10 +1,10 @@
-Ansible Role: HASS
-=========
+# Ansible Role: HASS
+
+[![Build Status](https://travis-ci.org/javiergayala/ansible-role-hass.svg?branch=master)](https://travis-ci.org/javiergayala/ansible-role-hass)
 
 Installs [Home-Assistant](https://home-assistant.io/) and optionally [AppDaemon](https://www.home-assistant.io/docs/ecosystem/appdaemon/).
 
-Role Variables
---------------
+## Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
@@ -55,15 +55,13 @@ hass_os_pkgs:
 
 The OS packages that need to be installed on the server.  This includes the Python 3 packages.
 
-Dependencies
-------------
+## Dependencies
 
 A list of other roles hosted on Galaxy should go here, plus any details in
 regards to parameters that may need to be set for other roles, or variables that
 are used from other roles.
 
-Example Playbook
-----------------
+## Example Playbook
 
 To install the role with AppDaemon:
 
@@ -87,14 +85,11 @@ To install the role with AppDaemon and additional PIP Packages for AppDaemon:
              - requests
 ```
 
-
-License
--------
+## License
 
 BSD
 
-Author Information
-------------------
+## Author Information
 
 Javier Ayala  
 http://javierayala.com/
