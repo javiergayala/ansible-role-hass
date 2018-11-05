@@ -68,8 +68,8 @@ To install the role with AppDaemon:
 ```yaml
     - hosts: servers
       roles:
-         - role: ansible-role-hass
-           hass_install_appdaemon: true
+        - role: ansible-role-hass
+          hass_install_appdaemon: true
 ```
 
 To install the role with AppDaemon and additional PIP Packages for AppDaemon:
@@ -77,12 +77,12 @@ To install the role with AppDaemon and additional PIP Packages for AppDaemon:
 ```yaml
     - hosts: servers
       roles:
-         - role: ansible-role-hass
-           hass_install_appdaemon: true
-           hass_pip_pkgs_appdaemon:
-             - appdaemon
-             - SQLAlchemy
-             - requests
+        - role: ansible-role-hass
+          hass_install_appdaemon: true
+          hass_pip_pkgs_appdaemon:
+            - appdaemon
+            - SQLAlchemy
+            - requests
 ```
 
 ## License
