@@ -1,4 +1,7 @@
 ---
+env:
+  - DISTRO=debian
+  - DISTRO=rhel
 sudo: required
 language: python
 services:
@@ -7,7 +10,6 @@ before_install:
   - sudo apt-get -qq update
 install:
   - pip install -r requirements.txt
-script:
-  - molecule test
+script: "molecule test -s $DISTRO"
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
