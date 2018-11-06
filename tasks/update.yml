@@ -1,0 +1,24 @@
+---
+- name: Upgrade Home-Assistant and dependencies
+  pip:
+    name: "{{ hass_pip_pkgs }}"
+    virtualenv: "{{ hass_virtualenv_path }}"
+    virtualenv_python: "{{ hass_python_path }}"
+    state: latest
+  become: true
+  become_user: "{{ hass_user }}"
+  when: hass_update_pkgs is defined and hass_update_pkgs
+  notify: home-assistant restart
+
+- name: Upgrade AppDaemon and dependencies
+  pip:
+    name: "{{ hass_pip_pkgs_appdaemon }}"
+    virtualenv: "{{ hass_appdaemon_virtualenv_path }}"
+    virtualenv_python: "{{ hass_python_path }}"
+    state: latest
+  become: true
+  become_user: "{{ hass_user }}"
+  when:
+    - hass_install_appdaemon is defined and hass_install_appdaemon
+    - hass_update_pkgs is defined and hass_update_pkgs
+  notify: appdaemon restart
