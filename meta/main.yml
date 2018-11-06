@@ -55,7 +55,7 @@ galaxy_info:
       versions:
         - bionic
 
-  galaxy_tags: 
+  galaxy_tags:
     - python
     - home-assistant
     - appdaemon
