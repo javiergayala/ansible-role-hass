@@ -55,6 +55,12 @@ hass_os_pkgs:
 
 The OS packages that need to be installed on the server.  This includes the Python 3 packages.
 
+```yaml
+hass_update_pkgs: false
+```
+
+Set to `true` to have the role upgrade the Home-Assistant and AppDaemon PIP packages.
+
 ## Dependencies
 
 A list of other roles hosted on Galaxy should go here, plus any details in

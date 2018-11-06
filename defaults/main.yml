@@ -9,3 +9,4 @@ hass_pip_pkgs:
   - homeassistant
   - wheel
 hass_pip_pkgs_appdaemon: [ appdaemon ]
+hass_update_pkgs: false
