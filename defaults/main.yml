@@ -5,8 +5,12 @@ hass_appdaemon_virtualenv_path: /srv/appdaemon
 hass_user: homeassistant
 hass_config_path: /home/homeassistant/.homeassistant
 hass_install_appdaemon: false
+hass_install_mariadb: false
+hass_install_mysql: false
+hass_pip_mysql: [ mysqlclient ]
 hass_pip_pkgs:
   - homeassistant
   - wheel
 hass_pip_pkgs_appdaemon: [ appdaemon ]
 hass_update_pkgs: false
+hass_use_mysql: false

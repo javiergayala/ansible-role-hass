@@ -1,0 +1,12 @@
+---
+- name: Install MariaDB Client
+  package:
+    name: "{{ hass_mariadb_pkgs }}"
+    state: present
+  when: hass_install_mariadb is defined and hass_install_mariadb
+
+- name: Install MySQL Client
+  package:
+    name: "{{ hass_mysql_pkgs }}"
+    state: present
+  when: hass_install_mysql is defined and hass_install_mysql

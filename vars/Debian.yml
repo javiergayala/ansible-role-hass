@@ -7,3 +7,7 @@ hass_os_pkgs:
   - python3-dev
   - python3-setuptools
   - python-setuptools
+hass_common_db_pkgs:
+  - libssl-dev
+hass_mariadb_pkgs: "['libmariadbclient-dev'] + {{ hass_common_db_pkgs }}"
+hass_mysql_pkgs: "['default-libmysqlclient-dev'] + {{ hass_common_db_pkgs }}"

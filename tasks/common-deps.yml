@@ -22,9 +22,14 @@
     owner: "{{ hass_user }}"
     group: "{{ hass_user }}"
 
+- name: Add mysqlclient PIP Package to install list if using MySQL/MariaDB
+  set_fact:
+    _hass_pip_pkgs: "{{ hass_pip_pkgs }} + {{ hass_pip_mysql }}"
+  when: hass_use_mysql is defined and hass_use_mysql
+
 - name: Install Home-Assistant and dependencies
   pip:
-    name: "{{ hass_pip_pkgs }}"
+    name: "{{ _hass_pip_pkgs | default(hass_pip_pkgs) }}"
     virtualenv: "{{ hass_virtualenv_path }}"
     virtualenv_python: "{{ hass_python_path }}"
   become: true
