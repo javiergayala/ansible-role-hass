@@ -5,7 +5,11 @@ import testinfra.utils.ansible_runner
 import pytest
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
+<<<<<<< HEAD
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
+=======
+    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('centos7')
+>>>>>>> 320a0fd03f50db5a3e72d2e98b33125c3fa01450
 
 
 @pytest.mark.parametrize("name,version", [

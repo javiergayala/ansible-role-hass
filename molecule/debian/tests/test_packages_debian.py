@@ -15,7 +15,11 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     ("python3-setuptools", "3"),
     ("python-setuptools", "3"),
 ])
+<<<<<<< HEAD
 def test_os_packages(host, name, version):
+=======
+def test_rpm_packages(host, name, version):
+>>>>>>> 320a0fd03f50db5a3e72d2e98b33125c3fa01450
     """Test that rpm based packages are present.
 
     Arguments:
