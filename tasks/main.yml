@@ -10,6 +10,10 @@
 - name: Include OS dependencies
   include_tasks: "tasks/{{ ansible_os_family }}-deps.yml"
 
+- name: Include DB dependencies
+  include_tasks: "tasks/install-db-deps.yml"
+  when: (hass_install_mariadb is defined and hass_install_mariadb) or (hass_install_mysql is defined or hass_install_mysql)
+
 - name: Include Common dependencies
   include_tasks: tasks/common-deps.yml
 

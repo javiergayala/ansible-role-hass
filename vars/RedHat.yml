@@ -7,3 +7,9 @@ hass_os_pkgs:
   - python36u-devel
   - python36u-setuptools
   - python-setuptools
+hass_common_db_pkgs:
+  - openssl-devel
+  - gcc
+hass_mariadb_pkgs: "['mariadb101u-devel'] + {{ hass_common_db_pkgs }}"
+hass_mysql_pkgs: "['mysql-community-devel'] + {{ hass_common_db_pkgs }}"
+hass_mysql_repo: "https://dev.mysql.com/get/mysql80-community-release-el{{ ansible_distribution_major_version }}-1.noarch.rpm"

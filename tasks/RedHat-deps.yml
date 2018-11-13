@@ -17,6 +17,11 @@
     state: present
   when: ansible_os_family == 'RedHat'
 
+- name: install MySQL Community YUM Repo
+  yum:
+    name: "{{ hass_mysql_repo }}"
+  when: hass_install_mysql is defined and hass_install_mysql
+
 - name: Install Python 3
   yum:
     name: "{{ hass_os_pkgs }}"
